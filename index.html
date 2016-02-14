@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="main.css">
+    <link href="https://fonts.googleapis.com/css?family=Arimo" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <video id="vid" controls>
+      <source src="http://edge-vids.wirewax.com/80E87A/wirewax-videos/vidData/8016402/8016402_1080.mp4?chromeFix=VHRYO7zRTyHsIdfc" type="video/mp4"></source>
+    </video>
+    <div id="overlay" style="position: relative; top: -450px; left:250px;">
+      <div id="circle"></div>
+      <div id="modal" style="display:none;">
+        <h2 id="close">x</h2>
+        <h1>Control at your fingertips</h1>
+        <p>control the temperature</p>
+      </div>
+    </div>
+    <script type="text/javascript">
+      var overlay = document.getElementById('overlay');
+      var video = document.getElementById('vid');
+      video.addEventListener('progress', function() {
+          var show = video.currentTime >=1 && video.currentTime < 10;
+          overlay.style.visibility = show ? 'visible' : 'hidden';
+      }, false);
+      var circle = document.getElementById('circle');
+      var modal = document.getElementById('modal');
+      var close = document.getElementById('close');
+      circle.addEventListener('click', function(){
+        modal.style.display = 'block';
+        circle.style.display = 'none';
+        video.pause();
+      }, false);
+      modal.addEventListener('click', function(){
+        modal.style.display = 'none';
+        video.play();
+      }, false);
+    </script>
+</body>
+</html>
