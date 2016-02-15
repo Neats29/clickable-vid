@@ -18,5 +18,5 @@ circle.addEventListener('click', function(){
 
 modal.addEventListener('click', function(){
   modal.style.display = 'none';
-  video.play();
+  video.src = "http://techslides.com/demos/sample-videos/small.mp4";
 }, false);
