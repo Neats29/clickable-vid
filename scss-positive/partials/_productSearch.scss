@@ -1,0 +1,64 @@
+.product-search {
+    padding: 30px 0;
+
+    @include respond(sm) {
+        padding: 6px 0px;
+    }
+
+    &__form {
+        @include make-row();
+    }
+
+    &__col {
+        @include make-xs-column(12);
+        @include make-sm-column(12);
+        @include make-md-column(7);
+        @include make-lg-column(9);
+        box-sizing: border-box;
+
+        &--btn {
+            @include make-xs-column(12);
+            @include make-sm-column(12);
+            @include make-md-column(5);
+            @include make-lg-column(3);
+
+            @include respond(sm) {
+                display: none;
+            }
+        }
+    }
+
+    &__input {
+        @include font($weight: 600);
+        background: darken($colour--white, 10%);
+        border: none;
+        padding: 11px 30px 10px;
+        width: 100%;
+        box-sizing: border-box;
+        outline: none;
+
+        @include respond(sm) {
+            @include font($size: 12, $weight: 600);
+            padding: 8px 10px;
+        }
+    }
+
+    &__icon {
+        position: absolute;
+        top: 50%;
+        right: 25px;
+        display: block;
+        width: 20px;
+        height: 20px;
+        margin-top: -10px;
+        cursor: pointer;
+        @include sprite-sheet($positionX: -150px, $positionY: -400px);
+    }
+
+    &__button {
+        background: none;
+        cursor: pointer;
+        @include btn($colour--form);
+    }
+
+}

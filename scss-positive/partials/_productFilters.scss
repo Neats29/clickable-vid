@@ -1,0 +1,100 @@
+.product-filters {
+    color: $colour--grey;
+    margin: 17px 0 30px;
+
+    @include respond(sm) {
+        margin: 0px 0px -1px;
+    }
+
+    &__filter {
+        padding-bottom: 5px;
+
+        @include respond(sm) {
+            padding: 0;
+        }
+    }
+
+    &__trigger {
+        position: relative;
+    }
+
+    &__title {
+        display: block;
+        @include font($size: 14, $weight: 600);
+        text-decoration: none;
+        padding: 25px 0;
+
+        @include respond(sm) {
+            padding: 10px 0;
+        }
+    }
+
+    &__icon {
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        height: 20px;
+        width: 12px;
+        display: block;
+        margin-top: -9px;
+        pointer-events: none;
+        @include sprite-sheet($positionX: -200px, $positionY: -950px);
+        @include transition(transform 150ms linear);
+        @include prefix(transform, rotate(90deg));
+
+        &--open {
+            @include prefix(transform, rotate(-90deg));
+        }
+    }
+
+    &__label {
+        display: block;
+        padding: 7px 0;
+        cursor: pointer;
+
+        @include respond(sm) {
+            padding: 0px;
+        }
+    }
+
+    &__input {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        outline: none;
+        background: darken($colour--white, 10%);
+        @include prefix(appearance, none);
+        cursor: pointer;
+        vertical-align: top;
+        @include transition(background 150ms linear);
+
+        &--checked {
+            background: $colour--blue;
+        }
+    }
+
+    &__text {
+        @include font($size: 12, $colour: $colour--grey);
+        vertical-align: top;
+        display: inline-block;
+        margin-top: 6px;
+    }
+
+    &__spacer {
+        height: 30px;
+
+        @include respond(sm) {
+            height: 10px;
+        }
+    }
+
+    &__rule {
+        display: block;
+        width: auto;
+        height: 1px;
+        background: $colour--extralightgrey;
+        border: none;
+        margin: 0 -15px;
+    }
+
+}

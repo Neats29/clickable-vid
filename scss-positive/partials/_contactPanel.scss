@@ -1,0 +1,68 @@
+.contact-panel {
+    background: $colour--tablealt;
+    padding: 15px 25px;
+    border-top: 1px solid $colour--extralightgrey;
+    border-bottom: 1px solid $colour--extralightgrey;
+    @include clearfix();
+
+    &__title {
+        margin-bottom: 20px;
+        @include font($family: $font-family !important, $colour: $colour--blue, $weight: 600);
+    }
+
+    &__address {
+        width: 33.33%;
+        float: left;
+
+        @include respond(sm) {
+            width: 100%;
+        }
+    }
+
+    &__address-line {
+        margin: 0px !important;
+        @include font($colour: $colour--lightgrey !important);
+    }
+
+    &__ctas {
+        width: 66.66%;
+        float: left;
+
+        @include respond(sm) {
+            width: 100%;
+            margin-top: 20px;
+        }
+    }
+
+    &__cta {
+        display: block;
+        text-decoration: none;
+        margin: 0 0 15px;
+        padding-left: 36px;
+        @include font($size: 18, $colour: $colour--lightgrey);
+
+        span {
+            display: inline-block;
+        }
+
+        &:before {
+            content: ' ';
+            display: inline-block;
+            width: 23px;
+            height: 16px;
+            vertical-align: middle;
+            margin-left: -36px;
+            margin-right: 10px;
+            @include sprite-sheet($positionX: -50px, $positionY: -600px);
+        }
+
+        &--phone:before {
+            width: 16px;
+            height: 19px;
+            margin-left: -33px;
+            margin-right: 12px;
+            background-position: 0px -600px;
+        }
+    }
+
+}

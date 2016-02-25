@@ -1,0 +1,42 @@
+.contact-details {
+    padding-bottom: 30px;
+
+    &__container {
+        @include container-small();
+    }
+
+    &__row {
+        @include make-row();
+    }
+
+    &__location {
+        @include make-xs-column(12);
+        @include make-sm-column(6);
+        @include make-md-column(3);
+        @include make-lg-column(3);
+        box-sizing: border-box;
+        padding-bottom: 40px;
+    }
+
+    &__name {
+        @include font($colour: $colour--blue, $weight: 700);
+        margin-bottom: 15px;
+    }
+
+    &__address {
+        margin-bottom: 15px;
+        @include font($height: 1.6em);
+    }
+
+    &__link {
+        @include font();
+        text-decoration: none;
+        display: block;
+        margin: 5px 0;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+}

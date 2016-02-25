@@ -1,0 +1,149 @@
+@mixin font($family: $font-family, $size: $font-size, $weight: 400, $spacing: $font-spacing, $height: 1.2em, $colour: inherit) {
+    font-family: $family;
+    @include font-size($size);
+    font-weight: $weight;
+    letter-spacing: $spacing;
+    line-height: $height;
+    color: $colour;
+}
+
+@mixin font-size($size) {
+    font-size: strip-units($size) + px;
+    font-size: strip-units($size) + rem;
+}
+
+@function strip-units($number) {
+    @return $number / ($number * 0 + 1);
+}
+
+@mixin transition($prop) {
+    -webkit-transition: #{$prop};
+    -moz-transition: #{$prop};
+    -o-transition: #{$prop};
+    -ms-transition: #{$prop};
+    transition: #{$prop};
+}
+
+@mixin prefix($prop, $val) {
+    -webkit-#{$prop}: $val;
+    -moz-#{$prop}: $val;
+    -o-#{$prop}: $val;
+    -ms-#{$prop}: $val;
+    #{$prop}: $val;
+}
+
+@mixin container() {
+    @include container-fixed;
+
+    max-width: 1500px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 40px;
+    padding-right: 40px;
+
+    &--fluid {
+        padding-left: 15px;
+    }
+
+    @include respond(md) {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    @include respond(sm) {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+@mixin container-small() {
+    @include container();
+    max-width: 1000px;
+}
+
+@mixin blur() {
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+}
+
+@mixin btn($colour: null) {
+    display: inline-block;
+    padding: 10px 60px;
+    border: 2px solid $colour--white;
+    text-decoration: none;
+    outline: none;
+    @include font($weight: 600);
+    @include transition('background 150ms linear, color 150ms linear');
+
+    &:hover {
+        background: $colour--white;
+        color: $colour--blue;
+    }
+
+    @if $colour != null {
+        border: 2px solid $colour;
+        color: $colour;
+
+        &:hover {
+            background: $colour;
+            color: $colour--white;
+        }
+    }
+
+    &--blue {
+        color: $colour--blue;
+        border: 2px solid $colour--blue;
+
+        &:hover {
+            background: $colour--blue;
+            color: $colour--white;
+        }
+    }
+}
+
+@mixin sprite-sheet($scale: 1, $positionX: 0, $positionY: 0) {
+    background-image: url(../img/sprite-sheet.png);
+    background-image: linear-gradient(transparent, transparent), url(../img/sprite-sheet.png);
+    background-position: ($scale * $positionX) ($scale * $positionY);
+    background-size: ($scale * 600px) ($scale * 2400px);
+    background-repeat: no-repeat;
+}
+
+@mixin respond($media) {
+
+    @if $media == lg {
+        @media only screen and (min-width: ($screen-lg - 1)) { @content; }
+    }
+    @else if $media == md {
+        @media only screen and (max-width: ($screen-lg - 1)) { @content; }
+    }
+    @else if $media == sm {
+        @media only screen and (max-width: ($screen-md - 1)) { @content; }
+    }
+    @else if $media == xs {
+        @media only screen and (max-width: ($screen-xs - 1)) { @content; }
+    }
+    @else {
+        @media only screen and (max-width: $media) { @content; }
+    }
+
+}
+
+@mixin respond-up($media) {
+
+    @if $media == lg {
+        @media only screen and (min-width: ($screen-lg - 1)) { @content; }
+    }
+    @else if $media == md {
+        @media only screen and (min-width: ($screen-lg - 1)) { @content; }
+    }
+    @else if $media == sm {
+        @media only screen and (min-width: ($screen-md - 1)) { @content; }
+    }
+    @else if $media == xs {
+        @media only screen and (min-width: ($screen-xs - 1)) { @content; }
+    }
+    @else {
+        @media only screen and (min-width: $media) { @content; }
+    }
+
+}

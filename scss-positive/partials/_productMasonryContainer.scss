@@ -1,0 +1,143 @@
+.masonry-container.masonry-container--product .masonry-container {
+
+    &__item {
+        @include make-xs-column(12);
+        @include make-sm-column(6);
+        @include make-md-column(4);
+        @include make-lg-column(4);
+        padding-bottom: 33.33%;
+        box-sizing: border-box;
+        color: $colour--blue;
+        overflow: hidden;
+        background-color: $colour--white;
+        background-size: 100% auto;
+        background-size: contain;
+        background-position: top right;
+        background-repeat: no-repeat;
+
+        @include respond(sm) {
+            padding-bottom: 50%;
+        }
+
+        @include respond(767px) {
+            padding-bottom: 100%;
+        }
+
+        &--sizer {
+            height: 0px;
+            min-height: 0px;
+            padding-bottom: 0px;
+        }
+
+        &--large {
+            @include make-xs-column(12);
+            @include make-sm-column(12);
+            @include make-md-column(8);
+            @include make-lg-column(8);
+            padding-bottom: 66.66%;
+
+            @include respond(xs) {
+                padding-bottom: 100%;
+            }
+        }
+
+    }
+
+    &__container {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        left: 0px;
+        bottom: 0px;
+        @include transition(background 150ms linear);
+    }
+
+    &__content {
+        position: absolute;
+        bottom: 80px;
+        left: 65px;
+        right: 65px;
+        @include transition(color 150ms linear);
+
+        @include respond(md) {
+            left: 40px;
+            right: 40px;
+            bottom: 40px;
+        }
+
+        @include respond(xs) {
+            left: 15px;
+            right: 15px;
+            bottom: 15px;
+        }
+    }
+
+    &__title {
+        position: relative;
+        padding-bottom: 20px;
+
+        @include respond(md) {
+            padding-bottom: 15px;
+        }
+
+        &:after {
+            content: ' ';
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+            display: block;
+            width: 75px;
+            height: 1px;
+            background: $colour--blue;
+        }
+    }
+
+    &__hover {
+        display: none;
+        overflow: hidden;
+    }
+
+    &__copy {
+        padding-top: 0px;
+
+        &:before {
+            content: none;
+        }
+    }
+
+    &__button {
+        @include btn();
+    }
+
+    &__link {
+        font: inherit;
+        color: inherit;
+        text-decoration: none;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+    }
+
+}
+
+.masonry-container.masonry-container--product .masonry-container__item.masonry-container__item--active {
+
+    .masonry-container {
+
+        &__container {
+            background: transparentize($colour--blue, 0.1);
+        }
+
+        &__content {
+            color: $colour--white;
+        }
+
+        &__title:after {
+            background: $colour--white;
+        }
+
+    }
+
+}

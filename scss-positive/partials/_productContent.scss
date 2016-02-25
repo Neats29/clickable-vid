@@ -1,0 +1,108 @@
+.product-content {
+
+    &__expander-trigger {
+        position: relative;
+        border-bottom: 1px solid $colour--extralightgrey;
+        cursor: pointer;
+
+        &:after {
+            content: ' ';
+            display: inline-block;
+            width: 11px;
+            height: 20px;
+            margin-top: -10px;
+            position: absolute;
+            top: 50%;
+            right: 15px;
+            @include sprite-sheet($positionX: -200px, $positionY: -950px);
+            @include prefix(transform, rotate(90deg));
+            @include transition(transform 350ms linear);
+        }
+
+        &[aria-expanded="true"]:after {
+            @include prefix(transform, rotate(-90deg));
+        }
+
+    }
+
+    &__title {
+        padding: 40px 0;
+        @include font($size: 24, $colour: $colour--blue, $weight: 700);
+
+        @include respond(sm) {
+            padding: 20px 0;
+            @include font($size: 20, $colour: $colour--blue, $weight: 700);
+        }
+    }
+
+    &__expander-body {
+        padding: 40px 0;
+
+        @include respond(sm) {
+            padding: 20px 0 0;
+        }
+
+        p {
+            @include font($height: 1.5em);
+            margin-bottom: 40px;
+
+            @include respond(sm) {
+                margin-bottom: 20px;
+            }
+
+            b {
+                font-weight: 600;
+            }
+
+        }
+
+        h3 {
+            margin: 20px 0;
+            @include font($size: 18, $weight: 700, $colour: $colour--blue);
+        }
+
+        ul {
+            list-style: none;
+            margin-bottom: 40px;
+
+            @include respond(sm) {
+                margin-bottom: 20px;
+            }
+
+            li {
+                @include font($weight: 600, $colour: $colour--footer);
+                margin: 20px 0;
+                padding: 0 0 0 20px;
+                position: relative;
+
+                &:before {
+                    content: ' ';
+                    background: $colour--blue;
+                    width: 10px;
+                    height: 10px;
+                    display: block;
+                    border-radius: 50%;
+                    position: absolute;
+                    top: 2px;
+                    left: 0;
+                }
+            }
+        }
+
+        table {
+            @extend .table;
+            @extend .table-striped;
+            @extend .table-responsive;
+
+            thead th {
+                @include font($weight: 600);
+            }
+
+            td {
+                @include font($colour: $colour--footer);
+            }
+        }
+
+    }
+
+}

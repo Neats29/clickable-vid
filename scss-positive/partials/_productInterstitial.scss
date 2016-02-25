@@ -1,0 +1,108 @@
+.product-interstitial {
+
+    &__container {
+        @include container();
+
+        @include respond(1500px) {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+    }
+
+    &__row {
+        @include make-row();
+    }
+
+    &__section {
+        @include make-xs-column(12);
+        @include make-sm-column(12);
+        @include make-md-column(9);
+        @include make-lg-column(9);
+        box-sizing: border-box;
+
+        &--small {
+            @include make-xs-column(12);
+            @include make-sm-column(12);
+            @include make-md-column(3);
+            @include make-lg-column(3);
+        }
+
+        &--full {
+            @include respond(sm) {
+                padding-left: 0px;
+                padding-right: 0px;
+            }
+        }
+
+        &--filter-collapse {
+            display: block;
+
+            @include respond(sm) {
+                display: none;
+                //@extend .collapse;
+                &.in {
+                    display: block;
+                }
+            }
+        }
+    }
+
+    &__title {
+        @include font($colour: $colour--blue, $size: 24, $height: 1.67em, $weight: 700);
+        padding: 30px 0;
+
+        &--filter-trigger {
+            @include respond(sm) {
+                padding: 14px 0;
+                @include font($colour: $colour--blue, $size: 10, $height: 1.67em, $weight: 700);
+                
+                &:before {
+                    content: ' ';
+                    display: inline-block;
+                    width: 20px;
+                    width: 14px;
+                    height: 8px;
+                    margin-right: 10px;
+                    @include sprite-sheet($scale: 0.65, $positionX: -350px, $positionY: -950px);
+                }
+            }
+        }
+
+        &--count {
+            @include respond(sm) {
+                display: none;
+            }            
+        }
+    }
+
+    &__grey {
+        color: $colour--lightgrey;
+    }
+
+    &__rule {
+        display: block;
+        height: 1px;
+        width: 100%;
+        border: none;
+        background: $colour--blue;
+        margin: 0px;
+        padding: 0px;
+    }
+
+}
+
+
+.product-interstitial .product-interstitial__section--top {
+    @include make-xs-column(7);
+    @include make-sm-column(7);
+    @include make-md-column(9);
+    @include make-lg-column(9);
+
+    &.product-interstitial__section--small {
+        @include make-xs-column(5);
+        @include make-sm-column(5);
+        @include make-md-column(3);
+        @include make-lg-column(3);
+    }
+
+}

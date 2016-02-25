@@ -1,0 +1,248 @@
+.footer {
+    background: $colour--footer;
+    padding: 80px 0px;
+    color: $colour--white;
+
+    &--bottom {
+        color: $colour--footertext;
+        background: $colour--grey;
+        padding: 10px 0;
+    }
+
+    &__container {
+        @include container-small();
+    }
+
+    &__top,
+    &__bottom {
+        @include make-row();
+    }
+
+    &__col {
+        @include make-xs-column(12);
+        @include make-sm-column(6);
+        @include make-md-column(3);
+        @include make-lg-column(3);
+        box-sizing: border-box;
+        overflow: hidden;
+
+        &--bottom {
+            @include make-xs-column(12);
+            @include make-sm-column(12);
+            @include make-md-column(3);
+            @include make-lg-column(3);
+
+            margin: 15px 0;
+            box-sizing: border-box;
+        }
+
+        &--bottom-large {
+            @include make-xs-column(12);
+            @include make-sm-column(9);
+            @include make-md-column(9);
+            @include make-lg-column(9);
+
+            margin: 15px 0;
+            box-sizing: border-box;
+        }
+
+        &--social {
+            margin: 10px 0;
+        }
+    }
+
+    &__col-break {
+        display: none;
+        float: left;
+        width: 100%;
+        @include respond(sm) {
+            display: block;
+        }
+    }
+
+    &__title {
+        @include font($family: $font-family--heading, $weight: 700);
+        vertical-align: bottom;
+        padding-bottom: 25px;
+        margin-bottom: 25px;
+        border-bottom: 1px solid transparentize($colour--white, 0.8);
+
+        @include respond(md) {
+            height: 2.4em;
+            padding-top: 40px;
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+    }
+
+    &__logo {
+        width: 100%;
+        height: auto;
+        max-width: 200px;
+    }
+
+    &__address {
+        margin: 25px 0;
+    }
+
+    &__address-item {
+        line-height: 1.4em;
+    }
+
+    &__copyright {
+        @include font($size: 12);
+    }
+
+    &__link {
+        display: block;
+        color: inherit;
+        text-decoration: none;
+        font-weight: 700;
+        margin: 0.2em 0;
+
+        &--light {
+            font-weight: 400;
+        }
+
+        &--no-margin {
+            margin: 0px;
+        }
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    &__link-list {
+        margin-bottom: 25px;
+    }
+
+    &__link-item {
+        padding: 3px 0;
+    }
+
+    &__tweet {
+        padding: 0px 0px 20px;
+        margin-bottom: 20px;
+        border-bottom: 1px solid transparentize($colour--white, 0.8);
+
+        &--last {
+            border-bottom: none;
+        }
+    }
+
+    &__iframe {
+        border: none;
+        margin: 0px;
+        padding: 0px;
+        width: 100%;
+        height: 350px;
+        overflow: hidden;
+
+        @include respond(767px) {
+            height: 400px;
+        }
+    }
+
+    /* BOTTOM */
+
+    &__legal-list-item {
+        display: inline-block;
+        padding: 0 15px;
+        border-right: 1px solid transparentize($colour--white, 0.5);
+        @include font($size: 12, $spacing: 0);
+
+        &--last {
+            border-right: none;
+            padding-right: 0px !important;
+            margin-right: 0px !important;
+        }
+
+        &--first {
+            padding-left: 0px !important;
+            margin-left: 0px !important;
+        }
+
+        @include respond(sm) {
+            padding: 5px 10px 5px 0px;
+            margin-right: 10px;
+        }
+    }
+
+    /* RESPONSIVE */
+
+    @include respond(md) {
+        padding: 0px 0px 40px;
+
+        &--bottom {
+            padding: 10px 0;
+        }
+    }
+
+}
+
+.tweet {
+
+    &__top {
+        @include clearfix();
+    }
+
+    &__pic {
+        width: 42px;
+        height: auto;
+        float: left;
+    }
+
+    &__info {
+        width: auto;
+        margin-left: 52px;
+    }
+
+    &__user,
+    &__time {
+        line-height: 1.4em;
+    }
+
+    &__body {
+        padding-top: 15px;
+        line-height: 1.4em;
+
+        a {
+            @extend .footer__link;
+            display: inline-block;
+        }
+    }
+
+}
+
+.footer .social-list {
+
+    &__link {
+        background-position: 0px -150px;
+
+        &--linkedin {
+            background-position: -250px -150px;
+        }
+
+        &--twitter {
+            background-position: -200px -150px;
+        }
+
+        &--facebook {
+            background-position: -150px -150px;
+        }
+
+        &--google {
+            background-position: -100px -150px;
+        }
+
+        &--pinterest {
+            background-position: -50px -150px;
+        }
+
+        &--instagram {
+            background-position: 0px -150px;
+        }
+    }
+
+}

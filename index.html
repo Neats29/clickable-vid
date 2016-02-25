@@ -6,18 +6,35 @@
     <link href="https://fonts.googleapis.com/css?family=Arimo" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <video id="vid" controls autoplay muted>
-      <source src="http://edge-vids.wirewax.com/80E87A/wirewax-videos/vidData/8016402/8016402_1080.mp4?chromeFix=VHRYO7zRTyHsIdfc" type="video/mp4"></source>
+<!--  <div class="video-div-wrapper">-->
+    <nav>
+     <li>home</li>
+     <li>heating</li>
+     <li>rooms</li>
+     <li>living room</li>
+     <li>rwxw</li>
+    </nav>
+   <div class="video-wrapper">
+     
+    <video id="js-video" controls autoplay muted>
+      <source src="http://edge-vids.wirewax.com/80E87A/wirewax-videos/vidData/8016402/8016402_1080.mp4?chromeFix=VHRYO7zRTyHsIdfc"></source>
     </video>
-    <div id="overlay" style="position: relative; top: -450px; left:250px;">
+   </div>
+<!--  </div>-->
+    <div id="overlay" class="modal-img">
       <div id="circle"></div>
-      <div id="modal" style="display:none;">
-        <h2 id="close">x</h2>
-        <h1>Control at your fingertips</h1>
-        <p>control the temperature</p>
-        
+      <div id="modal" class="modal-wrapper" style="display:none;">
+        <div class="img" alt="">
+          <div class="modal">
+            <h2 id="close">x</h2>
+            <h1>Control at your fingertips</h1>
+            <p>control the temperature</p>
+          </div>
+        </div>
       </div>
     </div>
+<!--       <div style="height:100px; background-color:blue;"></div>-->
+
     <script type="text/javascript" src="./main.js"></script>
 </body>
 </html>

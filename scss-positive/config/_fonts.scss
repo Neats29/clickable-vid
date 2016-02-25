@@ -1,0 +1,30 @@
+/* EATON FONT REGULAR */
+@font-face {
+    font-family: 'Eaton';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/woff2/EatonReg.woff2') format('woff2'),
+         url('../fonts/woff/EatonReg.woff') format('woff'),
+         url('../fonts/ttf/EatonReg.ttf')  format('truetype'),
+         url('../fonts/otf/EatonReg.otf')  format('opentype');
+}
+/* EATON FONT MEDIUM */
+@font-face {
+    font-family: 'Eaton';
+    font-style: normal;
+    font-weight: 600;
+    src: url('../fonts/woff2/EatonMed.woff2') format('woff2'),
+         url('../fonts/woff/EatonMed.woff') format('woff'),
+         url('../fonts/ttf/EatonMed.ttf')  format('truetype'),
+         url('../fonts/otf/EatonMed.otf')  format('opentype');
+}
+/* EATON FONT BOLD */
+@font-face {
+    font-family: 'Eaton';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../fonts/woff2/EatonBol.woff2') format('woff2'),
+         url('../fonts/woff/EatonBol.woff') format('woff'),
+         url('../fonts/ttf/EatonBol.ttf')  format('truetype'),
+         url('../fonts/otf/EatonBol.otf')  format('opentype');
+}

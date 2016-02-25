@@ -1,0 +1,29 @@
+.product-detail {
+    @include container();
+    border-bottom: 1px solid $colour--blue;
+
+    @include respond(sm) {
+        border-bottom: none;
+    }
+
+    &__row {
+        @include make-row();
+    }
+
+    &__col {
+        @include make-xs-column(12);
+        @include make-sm-column(12);
+        @include make-md-column(6);
+        @include make-lg-column(6);
+        @include box-sizing(border-box);
+
+        &--no-padding {
+            @include respond(sm) {
+                padding-left: 0px;
+                padding-right: 0px;
+            }
+        }
+        
+    }
+
+}

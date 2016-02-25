@@ -1,0 +1,64 @@
+.heading-panel {
+    background: $colour--white;
+    padding: 110px 0;
+    text-align: left;
+
+    &--left {
+        text-align: left;
+    }
+
+    &--center {
+        text-align: center;
+    }
+
+    &--small {
+        padding: 70px 0;
+    }
+
+    &__container {
+        @include container-small();
+    }
+
+    &__title {
+        @include font($size: 30, $weight: 700);
+        color: $colour--blue;
+
+        &--underline {
+            position: relative;
+            padding-bottom: 30px;
+            font-weight: 400;
+
+            &:after {
+                content: ' ';
+                display: block;
+                width: 90px;
+                height: 1px;
+                background: $colour--blue;
+                position: absolute;
+                bottom: 0px;
+                left: 0px;
+            }
+        }
+    }
+
+    &__copy {
+        @include font($height: 1.6em);
+        margin-top: 30px;
+
+        &--bold {
+            @include font($height: 1.6em, $weight: 600);
+        }
+    }
+
+    &__button {
+        @include btn($colour--blue);
+    }
+
+    @include respond(md) {
+        padding: 80px 0;
+    }
+
+    @include respond(sm) {
+        padding: 50px 0;
+    }
+}

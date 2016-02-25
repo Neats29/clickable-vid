@@ -1,0 +1,28 @@
+$some-positions: (
+    'some-class': 0px,
+    'position2.some-class': -100px
+);
+.some-class {
+    display: block;
+    width: 50px;
+    height: 50px;
+    background-image: url(../img/spritesheet.png);
+    background-size: 600px 1200px;
+    background-position: 0px 0px;
+}
+@each $class, $position in $some-positions {
+    .#{$class} {
+        &--variant1 {
+            background-position: 0px $position;
+        }
+
+        &--variant2 {
+            background-position: -50px $position;
+        }
+
+        &--variant3 {
+            background-position: -100px $position;
+        }
+    }
+}
+

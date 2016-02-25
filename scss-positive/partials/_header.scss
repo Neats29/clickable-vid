@@ -1,0 +1,467 @@
+.ribbon-link-list {
+    background: $colour--blue;
+    padding: 9px 0;
+    color: $colour--white;
+    position: relative;
+    z-index: 4;
+
+    &__container {
+        @include container();
+    }
+
+    &__row {
+        @include make-row();
+    }
+
+    &__col {
+        @include make-xs-column(12);
+        @include make-sm-column(12);
+        @include make-md-column(6);
+        @include make-lg-column(6);
+        box-sizing: border-box;
+        text-align: center;
+
+        &--small {
+            text-align: left;
+            @include make-xs-column(12);
+            @include make-sm-column(6);
+            @include make-md-column(3);
+            @include make-lg-column(3);
+        }
+    }
+
+    &__label,
+    &__list,
+    &__list-item {
+        display: inline-block;
+    }
+
+    &__link {
+        display: block;
+        text-decoration: none;
+        color: $colour--white;
+        padding: 4px 9px;
+        border-right: 1px solid transparentize($colour--white, 0.8);
+
+        &--active {
+            color: $colour--grey;
+            font-weight: 700;
+        }
+
+        &--last {
+            border-right: none;
+            padding-right: 0px !important;
+        }
+
+        @include respond(md) {
+            padding: 4px 6px;
+        }
+    }
+
+    &__worldwide {
+        float: right;
+        @include respond(md) {
+            float: none;
+        }
+    }
+
+    &__worldwide-label {
+        color: $colour--white;
+        text-decoration: none;
+        display: block;
+        padding: 4px 0;
+    }
+
+    &__worldwide-icon {
+        float: right;
+        display: inline-block;
+        width: 22px;
+        height: 22px;
+        vertical-align: top;
+        margin-top: -2px;
+        margin-left: 10px;
+        @include sprite-sheet($positionX: -300px, $positionY: 0px);
+        @include respond(md) {
+            float: none;
+            margin-left: 5px;
+        }
+    }
+
+    @include respond(sm) {
+        display: none;
+    }
+}
+
+.social-list {
+
+    &__list-item {
+        display: inline-block;
+        padding: 2px 5px;
+        vertical-align: top;
+
+        @include respond(md) {
+            padding: 2px 3px;
+        }
+    }
+
+    &__link {
+        text-decoration: none;
+        @include font-size(0);
+        display: block;
+        width: 20px;
+        height: 20px;
+        @include sprite-sheet();
+
+        &--linkedin {
+            background-position: -250px 0px;
+        }
+
+        &--twitter {
+            background-position: -200px 0px;
+        }
+
+        &--facebook {
+            background-position: -150px 0px;
+        }
+
+        &--google {
+            background-position: -100px 0px;
+        }
+
+        &--pinterest {
+            background-position: -50px 0px;
+        }
+
+        &--instagram {
+            background-position: 0px 0px;
+        }
+    }
+
+}
+
+.header {
+    top: -150px;
+    border-bottom: 1px solid $colour--blue;
+
+    @include respond(sm) {
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        z-index: 8;
+
+        @include transition('left 300ms, right 300ms');
+
+        &.meganav--visible {
+            left: -260px;
+            right: 260px;
+        }
+    }
+
+    &__background {
+        padding: 14px 0 0 0;
+        background: $colour--white;
+        position: relative;
+        z-index: 4;
+    }
+
+    &__container {
+        @include container();
+    }
+
+    &__row {
+        @include make-row();
+
+        &--mobile {
+            display: none;
+
+            @include respond(sm) {
+                display: block;
+            }
+        }
+    }
+
+    &__logo {
+        @include make-xs-column(6);
+        @include make-sm-column(6);
+        @include make-md-column(3);
+        @include make-lg-column(3);
+        box-sizing: border-box;
+    }
+
+    &__logo-link {
+        @include font-size(0);
+        background-image: url(../img/logo.png);
+        background-size: auto 50px;
+        background-repeat: no-repeat;
+        background-position: left center;
+        width: 100%;
+        height: 50px;
+        display: block;
+
+        @include respond(sm) {
+            background-image: url(../img/logo.png);
+            background-size: auto 100%;
+        }
+    }
+
+    &__right {
+        @include make-xs-column(6);
+        @include make-sm-column(6);
+        @include make-md-column(9);
+        @include make-lg-column(9);
+        box-sizing: border-box;
+        text-align: right;
+    }
+
+    &__section {
+        
+        &--mobile {
+            display: none;
+        }
+
+        @include respond(sm) {
+            display: none;
+
+            &--mobile {
+                display: block;
+            }
+        }
+    }
+
+    &__page-links,
+    &__search {
+        display: inline-block;
+        text-align: left;
+        vertical-align: top;
+    }
+
+    &__navigation {
+        padding: 5px 0 0px 0;
+    }
+
+    //MOBILE
+    @include respond(sm) {
+
+        &__background {
+            padding: 8px 0px;
+            border-top: 1px solid $colour--blue;
+            border-bottom: 1px solid $colour--blue;
+        }
+
+    }
+
+    &__mobile-search {
+        background: $colour--mobilesearch;
+        border-top: 1px solid $colour--blue;
+        margin-top: 9px;
+        margin-bottom: -8px;
+    }
+
+}
+
+.page-links {
+
+    &__list-item {
+        display: inline-block;
+    }
+
+    &__link {
+        display: block;
+        padding: 4px 9px;
+        text-decoration: none;
+        color: $colour--lightgrey;
+        @include font-size(13);
+        border-right: 1px solid transparentize($colour--grey, 0.8);
+
+        &--last {
+            border-right: none;
+        }
+    }
+
+    &__icon {
+        display: inline-block;
+        width: 16px;
+        height: 20px;
+        vertical-align: top;
+        margin-left: 10px;
+        @include sprite-sheet($positionX: 0, $positionY: -400px);
+
+        &--signin {
+            background-position: 0 -400px;
+        }
+
+        &--contact {
+            background-position: -50px -400px;
+        }
+
+        &--support {
+            width: 26px;
+            background-position: -100px -400px;
+        }
+    }
+
+}
+
+.search {
+
+    &__box {
+        background: $colour--extralightgrey;
+        border: none;
+        padding: 7px;
+        vertical-align: top;
+        outline: none !important;
+        margin-left: 10px;
+        margin-right: 0px;
+        height: 29px;
+        box-sizing: border-box;
+    }
+
+    &__submit {
+        background: $colour--extralightgrey;
+        border: none;
+        height: 29px;
+        width: 25px;
+        @include font-size(0);
+        position: relative;
+        outline: none !important;
+
+        &:before {
+            content: ' ';
+            display: block;
+            width: 20px;
+            height: 20px;
+            @include sprite-sheet($positionX: -150px, $positionY: -400px);
+            position: absolute;
+            top: 50%;
+            right: 5px;
+            margin-top: -10px;
+        }
+    }
+
+}
+
+.mobile-menu {
+
+    &__list-item {
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    &__link {
+        display: block;
+        width: 16px;
+        height: 19px;
+        @include sprite-sheet($positionX: 10px, $positionY: -400px);
+        margin: 1px 0px;
+        padding: 0 10px;
+        @include font-size(0);
+        border-right: 1px solid transparentize($colour--grey, 0.8);
+
+        &--menu {
+            width: 22px;
+            height: 16px;
+            @include sprite-sheet($scale: 0.5, $positionX: -200px, $positionY: -1150px);
+            background-position: -90px -575px;
+            border-right: none;
+            padding-right: 0px;
+            margin: 3px 0px;
+        }
+
+        &.meganav--visible {
+            background-position: -140px -575px;
+        }
+    }
+
+}
+
+.mobile-search {
+
+    &__form {
+        position: relative;
+    }
+
+    &__box {
+        box-sizing: border-box;
+        background: none;
+        border: none;
+        padding: 11px 40px 12px 15px;
+        width: 100%;
+        @include font-size(16);
+        outline: none !important;
+    }
+
+    &__submit {
+        background: none;
+        border: none;
+        height: 40px;
+        width: 25px;
+        @include font-size(0);
+        position: relative;
+        outline: none !important;
+        position: absolute;
+        top: 0px;
+        right: 15px;
+
+        &:before {
+            content: ' ';
+            display: block;
+            width: 20px;
+            height: 20px;
+            @include sprite-sheet($positionX: -150px, $positionY: -400px);
+            position: absolute;
+            top: 50%;
+            right: 0px;
+            margin-top: -10px;
+        }
+    }
+
+}
+
+.navigation {
+
+    &__list-item {
+        display: inline-block;
+    }
+
+    &__link {
+        display: block;
+        padding: 20px 15px;
+        text-decoration: none;
+        color: $colour--grey;
+        box-sizing: border-box;
+
+        &:hover {
+            color: $colour--blue;
+        }
+
+        &--active {
+            color: $colour--blue;
+            font-weight: 700;
+            border-bottom: 5px solid $colour--blue;
+        }
+
+        &--last {
+            padding-right: 0px !important;
+        }
+
+        @include respond(md) {
+            padding: 15px 10px;
+        }
+    }
+
+}
+
+.cookie-banner--show {
+    .ribbon-link-list {
+        margin-top: 40px;
+    }
+    .header {
+        @include respond(sm) {
+            top: 40px;
+        }
+        @include respond(xs) {
+            top: 66px;
+        }
+    }
+}

@@ -1,0 +1,90 @@
+.files {
+    list-style: none;
+
+    &__file {
+        list-style: none;
+        background: $colour--tablealt;
+        padding: 20px 25px !important;
+        margin: 0px 0px -1px 0px !important;
+        position: relative;
+        border-top: 1px solid $colour--extralightgrey;
+        border-bottom: 1px solid $colour--extralightgrey;
+
+        &:nth-child(even) {
+            background: $colour--white;
+        }
+
+        &:before {
+            content: none !important;
+            display: none !important;
+        }
+
+    }
+
+    &__left {
+        padding-right: 180px;
+
+        @include respond(sm) {
+            padding-right: 0px;
+        }
+    }
+
+    &__name {
+        @include font($family: $font-family !important, $colour: $colour--blue, $weight: 600);
+    }
+
+    &__description {
+        @include font($colour: $colour--footer);
+        margin-bottom: 0px !important;
+    }
+
+    &__right {
+        position: absolute;
+        top: 20px;
+        right: 0px;
+        bottom: 20px;
+        width: 180px;
+        @include clearfix();
+
+        @include respond(sm) {
+            margin-top: 20px;
+            position: static;
+            width: 100%;
+        }
+    }
+
+    &__size {
+        width: 50%;
+        float: left;
+        text-align: center;
+        margin-bottom: 0px !important;
+        @include font($colour: $colour--blue !important, $weight: 600 !important);
+
+        @include respond(sm) {
+            width: 75px;
+            text-align: left;
+        }
+    }
+
+    &__download {
+        width: 50%;
+        float: left;
+        @include font($size: 0);
+
+        &:before {
+            content: ' ';
+            display: block;
+            margin: 0 auto;
+            width: 33px;
+            height: 36px;
+            @include sprite-sheet($positionX: -250px, $positionY: -700px);
+        }
+
+        @include respond(sm) {
+            width: auto;
+            margin-left: 20px;
+        }
+        
+    }
+
+}

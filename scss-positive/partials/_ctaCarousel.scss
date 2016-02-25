@@ -1,0 +1,192 @@
+.cta-carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background: $colour--blue;
+
+    &__wrapper {
+        @include clearfix();
+        width: 20000em;
+        position: relative;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    &__item {
+        position: relative;
+        display: inline-block;
+        width: 100px;
+        float: left;
+        background-color: $colour--blue;
+        background-size: 100% auto;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        color: $colour--white;
+
+        &:nth-child(even) {
+            background-color: $colour--grey;
+        }
+    }
+
+    &__item-container {
+        display: block;
+        width: 100%;
+        padding-bottom: 100%;
+        @include transition(background 150ms linear);
+
+        &--active {
+            background-color: $colour--blue;
+        }
+    }
+
+    &__content {
+        position: absolute;
+        bottom: -25px;
+        left: 0px;
+        right: 0px;
+        padding: 0 40px 50px;
+
+        @include respond(md) {
+            padding: 0 20px 50px 40px;
+        }
+    }
+
+    &__category {
+        display: none;
+        @include font($family: $font-family--heading, $size: 30);
+
+        @include respond($breakpoint--cta-carousel) {
+            @include font($size: 24);
+        }
+
+        @include respond(md) {
+            @include font($size: 20);
+        }
+
+        @include respond(sm) {
+            @include font($size: 30);
+        }
+    }
+
+    &__title {
+        @include font($size: 30, $weight: 700);
+
+        @include respond($breakpoint--cta-carousel) {
+            @include font($size: 24, $weight: 700);
+        }
+
+        @include respond(md) {
+            @include font($size: 20, $weight: 700);
+        }
+
+        @include respond(sm) {
+            @include font($size: 30, $weight: 700);
+        }
+
+        &:after {
+            content: ' ';
+            display: block;
+            width: 75px;
+            height: 1px;
+            background: $colour--white;
+            margin: 15px 0 25px;
+            
+            @include respond($breakpoint--cta-carousel) {
+                margin: 15px 0;
+            }
+        }
+    }
+
+    &__button {
+        @include btn();
+        margin-top: 25px;
+            
+        @include respond($breakpoint--cta-carousel) {
+            margin-top: 15px;
+        }
+            
+        @include respond(md) {
+            padding: 7px 40px;
+        }
+            
+        @include respond(sm) {
+            padding: 10px 40px;
+        }
+    }
+
+    &__hover {
+        display: none;
+        overflow: hidden;
+    }
+
+    &__navigation {
+        position: absolute;
+        top: 50%;
+        margin-top: -20px;
+        display: block;
+        height: 40px;
+        width: 23px;
+        @include font-size(0);
+        cursor: pointer;
+
+        &--prev {
+            left: 10px;
+            @include sprite-sheet($positionX: -250px, $positionY: -750px);
+
+            @include respond(md) {
+                width: 18px;
+                height: 32px;
+                @include sprite-sheet($scale: 0.8, $positionX: -250px, $positionY: -750px);
+            }
+        }
+
+        &--next {
+            right: 10px;
+            @include sprite-sheet($positionX: -300px, $positionY: -750px);
+
+            @include respond(md) {
+                width: 18px;
+                height: 32px;
+                @include sprite-sheet($scale: 0.8, $positionX: -300px, $positionY: -750px);
+            }
+        }
+
+        &--hidden {
+            display: none;
+        }
+    }
+
+}
+
+.cta-carousel__item:hover {
+
+    .cta-carousel__content {
+        //bottom: 0px;
+
+        @include respond(1200px) {
+            bottom: -25px;
+        }
+    }
+
+}
+
+.cta-carousel .lSSlideOuter .lSPager.lSpg {
+    background: $colour--white;
+    margin: 0px !important;
+}
+.cta-carousel .lSSlideOuter .lSPager.lSpg > li {
+    padding: 10px 3px;
+}
+.cta-carousel .lSSlideOuter .lSPager.lSpg > li a {
+    width: 10px;
+    height: 10px;
+    background: $colour--black;
+    outline: none !important;
+    z-index: 3;
+}
+.cta-carousel .lSSlideOuter .lSPager.lSpg > li:hover a,
+.cta-carousel .lSSlideOuter .lSPager.lSpg > li.active a {
+    background: $colour--blue;    
+}

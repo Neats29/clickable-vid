@@ -1,0 +1,107 @@
+.product-info {
+    padding: 20px 0 20px 40px;
+    
+    @include respond(md) {
+        padding: 20px 0 0px 0px;
+    }
+
+    &__category {
+        @include font($weight: 600, $colour: $colour--blue);
+    }
+
+    &__rule {
+        margin: 20px 0;
+        display: block;
+        border: none;
+        height: 1px;
+        width: 100%;
+        background: $colour--extralightgrey;
+    }
+
+    &__title {
+        margin-top: 40px;
+        @include font($size: 40, $colour: $colour--blue);
+    }
+
+    &__subtitle {
+        @include font($family: $font-family !important, $size: 18, $colour: $colour--footer, $weight: 600);
+        margin-bottom: 40px;
+    }
+
+    &__number {
+        display: block;
+        @include font($colour: $colour--blue, $weight: 600);
+        text-decoration: none;
+        height: auto;
+        padding: 20px 0;
+        margin: -20px 0;
+
+        &[aria-expanded="true"] {
+            .product-info__no:after {
+                @include prefix(transform, rotate(-90deg));
+            }
+        }
+    }
+
+    &__no {
+        color: $colour--footer;
+        font-weight: 400;
+        float: right;
+        padding-right: 4px;
+
+        @include respond(sm) {
+            padding-right: 19px;
+        }
+
+        &:after {
+            content: ' ';
+            display: inline-block;
+            width: 11px;
+            height: 20px;
+            vertical-align: top;
+            margin-left: 15px;
+            margin-top: -2px;
+            @include sprite-sheet($positionX: -200px, $positionY: -900px);
+            @include prefix(transform, rotate(90deg));
+            @include transition(transform 350ms linear);
+        }
+    }
+
+    &__collapse {
+        @include clearfix();
+        padding-bottom: 20px;
+    }
+
+    &__copy {
+        @include font($height: 1.5em);
+        margin-bottom: 20px;
+
+        &--intro {
+            font-weight: 600;
+        }
+    }
+
+    &__button {
+        @include btn($colour--blue);
+        margin: 20px 40px 0px 0px;
+
+        @include respond(md) {
+            float: left;
+            width: 47.5%;
+            padding-left: 0px;
+            padding-right: 0px;
+            text-align: center;
+            @include box-sizing(border-box);
+            margin: 20px 1.5%;
+
+            &:nth-child(even) {
+                margin: 20px 2.5% 20px 0;
+            }
+
+            &:nth-child(odd) {
+                margin: 20px 0 20px 2.5%;
+            }
+        }
+    }
+
+}

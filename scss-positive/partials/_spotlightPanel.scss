@@ -1,0 +1,137 @@
+.spotlight-panel {
+    position: relative;
+    overflow: hidden;
+
+    &__image {
+        width: 100%;
+        height: auto;
+        display: block;
+        @include respond(sm) {
+            display: none;
+        }
+
+        &--mobile {
+            display: none;
+            @include respond(sm) {
+                display: block;
+            }
+        }
+    }
+    &__tile {
+        position: absolute;
+        top: 50%;
+        left: 15%;
+        width: 40%;
+        max-width: 600px;
+        margin-top: -35px;
+        border-left: 8px solid $colour--blue;
+        @include prefix(transform, translateY(-50%));
+        color: $colour--white;
+        -webkit-backdrop-filter: blur(5px);
+        backdrop-filter: blur(5px);
+        color: $colour--black;
+
+        @include respond(md) {
+            width: 60%;
+        }
+
+        @include respond(sm) {
+            margin-top: 0px;
+        }
+
+        @include respond(xs) {
+            width: auto;
+            left: 15px;
+            right: 15px;
+            top: auto;
+            bottom: 50px;
+            @include prefix(transform, translateY(0px));
+        }
+    }
+
+    &__tile-background {
+        background: darken($colour--white, 1%);
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+        opacity: 0.85;
+        z-index: 1;
+
+        &--dark {
+            background: $colour--grey;
+            opacity: 0.3;
+        }
+    }
+
+    &__tile-body {
+        position: relative;
+        z-index: 2;
+        padding: 30px 30px 30px 50px;
+        box-sizing: border-box;
+
+        @include respond(xs) {
+            padding: 30px;
+        }
+    }
+
+    &__tile-nav {
+        position: static;
+        margin: 0px;
+        width: 100%;
+        text-align: left;
+    }
+
+    &__title {
+        @include font($size: 40, $colour: $colour--blue);
+
+        @include respond(md) {
+            @include font($size: 34, $colour: $colour--blue);
+        }
+
+        @include respond(xs) {
+            @include font($size: 20, $colour: $colour--blue);
+        }
+    }
+
+    &__sub-head {
+        position: relative;
+        margin-top: 20px;
+        padding-top: 20px;
+        @include font($size: 18, $weight: 600);
+
+        @include respond(xs) {
+            @include font($size: 14, $weight: 600);
+            margin-top: 10px;
+            padding-top: 10px;
+        }
+
+        &:before {
+            content: ' ';
+            display: block;
+            height: 1px;
+            width: 90px;
+            background: $colour--blue;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+
+    }
+
+    &__copy {
+        margin-top: 15px;
+        @include font($size: 16, $height: 1.2em);
+
+        @include respond(sm) {
+            display: none;
+        }
+    }
+
+    &__button {
+        @include btn($colour--blue);
+        margin-top: 20px;
+    }
+
+}

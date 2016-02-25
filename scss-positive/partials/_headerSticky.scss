@@ -1,0 +1,63 @@
+.header.header--sticky {
+    display: none;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 8;
+    @include transition(top 75ms linear);
+    padding: 0px;
+}
+.header.header--sticky .header {
+
+    &__background {
+        padding: 0px;
+    }
+
+    &__logo {
+        @include make-md-column(2);
+        @include make-lg-column(2);
+        margin-top: 10px;
+    }
+
+    &__logo-link {
+        height: 30px !important;
+        background-image: url(../img/logo.png);
+        background-size: auto 30px;
+    }
+
+    &__right {
+        @include make-md-column(10);
+        @include make-lg-column(10);
+    }
+    
+    &__section {
+
+        &--not-sticky {
+            display: none;
+        }
+
+    }
+
+    &__navigation {
+        padding: 0px;
+    }
+
+}
+.header.header--sticky .navigation {
+
+    &__link {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+}
+.header.header--visible {
+    display: block;
+}
+
+.cookie-banner--show {
+    .header.header--sticky {
+        top: 40px;
+    }
+}

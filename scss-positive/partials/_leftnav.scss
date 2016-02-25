@@ -1,0 +1,190 @@
+.leftnav {
+    @include make-xs-column(12);
+    @include make-md-column(3);
+    @include box-sizing(border-box);
+    padding-left: 0px;
+    padding-right: 35px;
+    overflow: hidden;
+
+    @include respond(md) {
+        padding-right: 15px;
+    }
+
+    @include respond(sm) {
+        height: auto !important;
+        width: 100% !important;
+        padding-right: 0px;
+
+        .sticky-wrapper {
+            height: auto !important;
+        }
+    }
+
+    .mm-wrapper {
+        height: 100%;
+    }
+
+    &__collapse-trigger {
+        display: none;
+        @include font($colour: $colour--blue, $weight: 600);
+        padding: 10px 15px;
+        border-top: 1px solid transparentize($colour--blue, 0.6);
+        border-bottom: 1px solid transparentize($colour--blue, 0.6);
+
+        &:before {
+            content: '+ ';
+            @include font($size: 20, $weight: 600);
+            vertical-align: middle;
+        }
+
+        &--open:before {
+            content: '− ';
+        }
+
+        @include respond(sm) {
+            display: block;
+        }
+    }
+
+    .mm-panels > .mm-panel:after {
+        height: 0px;
+    }
+    .mm-listview {
+        margin-bottom: 0px !important;
+    }
+
+    &__title,
+    .mm-title {
+        background: $colour--footer;
+        width: 100%;
+        display: block;
+        color: $colour--white !important;
+        font-weight: 500;
+        padding: 18px 15px 18px 45px;;
+        text-decoration: none;
+        text-align: left;
+        @include box-sizing(border-box);
+    }
+    .mm-title {
+        margin-left: -($mm_btnSize);
+        margin-right: -($mm_btnSize);
+        width: auto;
+    }
+
+    &__list-item {
+        color: $colour--grey;
+        padding: $nav__padding;
+        background: $colour--white;
+        @include box-sizing(border-box);
+        @include transition('background 150ms linear, color 150ms linear');
+
+        &--current {
+            background: $colour--blue;
+            color: $colour--white;
+        }
+
+        &:hover {
+            background: $colour--blue;
+            color: $colour--white;
+            cursor: pointer; 
+
+            .mm-next:after {
+                @include sprite-sheet($positionX: -150px, $positionY: -750px);
+            }
+        }
+
+        &:after {
+            left: 0px !important;
+        }
+
+        @include respond(sm) {
+            padding-left: 15px;
+        }
+    }
+    &__link {
+        font: inherit;
+        color: inherit;
+        text-decoration: none;
+        @include font($weight: 500);
+    }
+    .mm-next {
+        display: inline-block;
+        float: right;
+        width: 40px;
+        cursor: pointer;
+        border: none;
+
+        &:before {
+            content: none;
+        }
+
+        &:after {
+            display: block;
+            width: 10px;
+            height: 15px;
+            position: absolute;
+            top: 50%;
+            right: 15px;
+            margin-top: -7px;
+            border: none;
+            @include prefix('transform', none);
+            @include sprite-sheet($positionX: -150px, $positionY: -900px);
+        }
+
+        &--current:after {
+            @include sprite-sheet($positionX: -150px, $positionY: -750px);
+        }
+    }
+    .mm-prev {
+        display: inline-block;
+        float: right;
+        width: 40px;
+        height: 100%;
+        cursor: pointer;
+        border: none;
+        padding: 0px !important;
+
+        &:before {
+            display: block;
+            width: 10px;
+            height: 15px;
+            position: absolute;
+            top: 50%;
+            right: 15px;
+            left: 15px;
+            margin-top: -7px;
+            border: none;
+            @include prefix('transform', rotate(180deg));
+            @include sprite-sheet($positionX: -150px, $positionY: -750px);
+        }
+    }
+}
+@media screen and (min-width: 992px) {
+    
+    .leftnav.leftnav--sticky {
+        position: relative;
+        z-index: 1;
+
+        .mm-wrapper {
+            right: 35px;
+
+            @include respond(md) {
+                right: 15px;
+            }
+        }
+
+    }
+    .leftnav.leftnav--sticky .leftnav {
+
+        &__container {
+            position: absolute;
+            top: 0px;
+            left: 0px !important;
+            right: 0px;
+            width: 100% !important;
+            z-index: 7;
+        }
+
+    }
+
+}

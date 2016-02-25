@@ -1,0 +1,313 @@
+.hero-panel {
+    position: relative;
+
+    &__foreground {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+        z-index: 1;
+    }
+
+    &__indicators {
+        top: 30px !important;
+        bottom: auto !important;
+        left: 50px !important;
+        margin-left: 0px;
+        text-align: left;
+        z-index: 2 !important;
+
+        @include respond(xs) {
+            top: 20px !important;
+            left: 30px !important;
+        }
+
+        &--hidden {
+            display: none;
+        }
+    }
+
+    &__indicator-item {
+        background: $colour--footer !important;
+        border: 1px solid $colour--footer !important;
+        width: 12px !important;
+        height: 12px !important;
+        margin: 0px !important;
+        
+        &.active {
+            background: $colour--white !important;
+            border: 1px solid $colour--white !important;
+        }
+    }
+
+    &__item {
+        background-size: auto 100%;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        min-height: 600px;
+        height: 600px;
+        height: 75vh;
+
+        @include respond(md) {
+            min-height: 0px;
+            height: 500px;
+        }
+
+        @include respond(xs) {
+            height: 450px;
+            height: 75vh;
+        }
+    }
+
+    &__image {
+        width: 100%;
+        height: auto;
+    }
+
+    &__navigation {
+        width: 5%;
+        background: none !important;
+        z-index: 2;
+
+        @include respond(xs) {
+            display: none;
+        }
+    }
+
+    &__control {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -20px;
+        margin-left: -11px;
+        display: block;
+        width: 23px;
+        height: 39px;
+        @include font-size(0);
+        @include sprite-sheet($positionX: -250px, $positionY: -750px);
+
+        &--right {
+            background-position: -300px -750px;
+        }
+    }
+
+    &__tile {
+        position: absolute;
+        top: 50%;
+        left: 15%;
+        width: 40%;
+        max-width: 600px;
+        margin-top: -35px;
+        border-left: 8px solid $colour--blue;
+        @include prefix(transform, translateY(-50%));
+        color: $colour--grey;
+        -webkit-backdrop-filter: blur(5px);
+        backdrop-filter: blur(5px);
+
+        @include respond(md) {
+            width: 60%;
+        }
+
+        @include respond(sm) {
+            margin-top: 0px;
+        }
+
+        @include respond(xs) {
+            width: auto;
+            left: 15px;
+            right: 15px;
+            top: auto;
+            bottom: 50px;
+            @include prefix(transform, translateY(0px));
+        }
+    }
+
+    &__tile-background {
+        background: $colour--white;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+        @include opacity(0.85);
+        z-index: 1;
+
+        &--dark {
+            background: $colour--grey;
+            @include opacity(0.3);
+        }
+    }
+
+    &__tile-body {
+        position: relative;
+        z-index: 2;
+        padding: 30px 30px 30px 50px;
+        box-sizing: border-box;
+
+        &--dark {
+            color: $colour--white;
+        }
+
+        @include respond(xs) {
+            padding: 30px;
+        }
+    }
+
+    &__tile-nav {
+        position: static;
+        margin: 0px;
+        width: 100%;
+        text-align: left;
+    }
+
+    &__title {
+        @include font($size: 40, $colour: $colour--blue);
+
+        @include respond(md) {
+            @include font($size: 34);
+        }
+
+        @include respond(xs) {
+            @include font($size: 26);
+        }
+    }
+
+    &__copy {
+        margin-top: 20px;
+        padding-top: 20px;
+        position: relative;
+        @include font($size: 16, $weight: 600, $height: 1.5em);
+
+        &--single {
+            @include font($size: 16, $height: 1.5em);
+        }
+
+        &:before {
+            content: ' ';
+            display: block;
+            height: 1px;
+            width: 90px;
+            background: $colour--blue;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+
+        @include respond(xs) {
+            display: none;
+
+            &--single {
+                display: block;
+                @include font($size: 12);
+                margin-top: 10px;
+                padding-top: 10px;
+            }
+        }
+    }
+
+    &__button {
+        @include btn($colour--blue);
+        margin-top: 20px;
+    }
+
+    &__scroller {
+        position: absolute;
+        bottom: 30px;
+        left: 0px;
+        right: 0px;
+        width: 30px;
+        height: 45px;
+        margin: 0 auto;
+        z-index: 2;
+        @include sprite-sheet($positionX: -300px, $positionY: -500px);
+
+        &:before,
+        &:after {
+            content: ' ';
+            display: block;
+            position: absolute;
+            bottom: 15px;
+            left: 0px;
+            right: 0px;
+            width: 30px;
+            height: 45px;
+            opacity: 0.4;
+            @include sprite-sheet($positionX: -300px, $positionY: -500px);
+        }
+
+        &:after {
+            opacity: 0.2;
+            bottom: 25px;
+        }
+
+        @include respond(sm) {
+            display: none;
+        }
+    }
+
+}
+
+.hero-panel--short .hero-panel {
+
+    &__item {
+        min-height: 450px; 
+        height: 450px;
+    }
+
+    &__tile {
+        margin-top: 0px;
+    }
+
+    &__copy {
+        font-weight: 400;
+    }
+
+}
+
+.hero-panel .hero-panel__tile .hero-panel__tile-body.hero-panel__tile-body--dark .hero-panel {
+
+    &__title {
+        color: $colour--white;
+    }
+
+    &__copy:before {
+        background: $colour--white;
+    }
+
+    &__button {
+        @include btn();
+    }
+
+}
+
+.hero-panel .carousel .hero-panel__tile-body {
+    padding: 70px 30px 30px 50px;
+
+    @include respond(xs) {
+        padding: 45px 30px 30px;
+    }
+}
+
+
+.hero-panel .slide-fade .carousel-inner .item {
+    @include prefix(transition-property, opacity);
+}
+.hero-panel .slide-fade .carousel-inner .item,
+.hero-panel .slide-fade .carousel-inner .active.left,
+.hero-panel .slide-fade .carousel-inner .active.right {
+    opacity: 0;
+}
+.hero-panel .slide-fade .carousel-inner .active,
+.hero-panel .slide-fade .carousel-inner .next.left,
+.hero-panel .slide-fade .carousel-inner .prev.right {
+    opacity: 1;
+}
+.hero-panel .slide-fade .carousel-inner .next,
+.hero-panel .slide-fade .carousel-inner .prev,
+.hero-panel .slide-fade .carousel-inner .active.left,
+.hero-panel .slide-fade .carousel-inner .active.right {
+    left: 0;
+    @include prefix(transform, translate3d(0, 0, 0));
+}

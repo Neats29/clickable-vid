@@ -1,0 +1,347 @@
+.article {
+    &__row{
+        @include make-row();
+    }
+    &__container {
+        @include container();
+        
+        @include respond(md) {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+    }
+}
+
+.standard__content{
+    @include make-xs-column(12);
+    @include make-md-column(9);
+    @include box-sizing(border-box);
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.backtotop {
+    border-top: 1px solid $colour--extralightgrey;
+    border-bottom: 1px solid $colour--extralightgrey;
+    position: absolute;
+    left: 0px;
+    right: 35px;
+    bottom: 200px;
+    z-index: 6;
+    background: $colour--white;
+
+    @include respond(md) {
+        right: 15px;
+    }
+
+    @include respond(sm) {
+        display: none;
+    }
+
+    &__link {
+        display: block;
+        padding: $nav__padding;
+        color: $colour--grey;
+        @include font($size: 14, $weight: 600);
+        text-decoration: none;
+    }
+    &__icon{
+        @include sprite-sheet($positionX: -350px, $positionY: -900px);
+        display: inline-block;
+        float:right;
+        width: 20px;
+        height: 20px;
+    }
+}
+
+.generic-content{
+    @include make-xs-column(12, $gutter:0);
+    @include box-sizing(border-box);
+    border-top: 1px solid $colour--extralightgrey;
+    padding-top: 40px;
+    margin-top: 0px;
+
+    .masonry-container__icon {
+        margin-bottom: 20px;
+    }
+
+    h1{
+        @include font($size: 40, $colour: $colour--blue);
+
+        @include respond(xs) {
+            @include font($size: 24, $weight: 700, $colour: $colour--blue);
+        }
+        margin-bottom: 20px;
+    }
+    h2 {
+        @include font($size: 24, $weight: 700, $colour: $colour--blue);
+
+        @include respond(xs) {
+            @include font($size: 20, $weight: 700, $colour: $colour--blue);
+        }
+
+        &.sub-head {
+            color: $colour--grey !important;
+        }
+    }
+    h3 {
+        @include font($family: $font-family !important, $size: 18, $weight: 700, $colour: $colour--blue);
+        margin: 30px 0 -20px;
+    }
+    h4 {
+        @include font($size: 18, $weight: 700);
+        color: $colour--grey;
+        margin-bottom: 20px;
+    }
+    h5 {
+        @include font($size: 16, $weight: 700);
+        color: $colour--blue;
+        margin-bottom: 20px;
+    }
+    hr.underline {
+        display: block;
+        width: 90px;
+        height: 1px;
+        background: $colour--blue;
+        border: none;
+        margin: 40px 0;
+    }
+    p {
+        @include font($height: 1.6em);
+        @include clearfix();
+        margin: 40px 0;
+        
+        &.intro {
+            @include font($size: 18, $height: 1.4em, $colour: #333f48);
+        }
+
+        b {
+            font-weight: 700;
+        }
+    }
+    ol,
+    ul {
+        margin-top: 40px;
+    }
+    ul li,
+    ol li {
+        @include font($weight: 600, $colour: $colour--footer, $height: 1.6em);
+        margin: 20px 0;
+        padding: 0 0 0 20px;
+        position: relative;
+    }
+    ol li {
+        padding: 0 0 0 30px;
+    }
+    ul li:before{
+        content: '';
+        background: $colour--blue;
+        width: 10px;
+        height: 10px;
+        display: block;
+        border-radius: 50%;
+        position: absolute;
+        top:5px;
+        left:0;
+    }
+    ol {
+        counter-reset: item;
+    }
+    ol li:before{
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        font-size: 18rem;
+        content: counter(item);
+        counter-increment: item;
+        display: inline-block;
+        top: 0px;
+        left: 0px;
+        width: 25px;
+        color: $colour--blue;
+    }
+
+    img {
+        display: inline-block;
+        max-width: 100%;
+        height: auto;
+
+        &[align='left'] {
+            margin-right: 20px;
+        }
+
+        &[align='right'] {
+            margin-left: 20px;
+        }
+    }
+
+    blockquote {
+        margin: 60px 0;
+        padding: 70px 0;
+        position: relative;
+        border-top: 1px solid $colour--extralightgrey;
+        border-bottom: 1px solid $colour--extralightgrey;
+
+        @include respond(xs) {
+            border: none;
+            margin: 60px -15px;
+            background: lighten($colour--extralightgrey, 5%);
+        }
+
+        &:before,
+        &:after {
+            content: ' ';
+            display: block;
+            position: absolute;
+            width: 139px;
+            height: 102px;
+            background-size: 139px 102px;
+            background-repeat: no-repeat;
+            background-position: 0px 0px;
+            z-index: 1;
+        }
+
+        &:before {
+            top: 60px;
+            left: 0px;
+            background-image: url(../img/quote-open.png);
+            background-image: linear-gradient(transparent, transparent), url(../img/quote-open.svg);
+
+            @include respond(xs) {
+                left: 15px;
+            }
+        }
+
+        &:after {
+            bottom: 60px;
+            right: 0px;
+            background-image: url(../img/quote-close.png);
+            background-image: linear-gradient(transparent, transparent), url(../img/quote-close.svg);
+
+            @include respond(xs) {
+                right: 15px;
+            }
+        }
+
+        p {
+            position: relative;
+            margin: 0px 60px;
+            @include font($size: 20, $weight: 600, $height: 1.4em, $colour: $colour--grey);
+            font-style: italic;
+            z-index: 2;
+        }
+
+        span {
+            position: relative;
+            margin: 40px 60px 0 60px;
+            display: block;
+            @include font($weight: 600, $colour: $colour--blue);
+            z-index: 2;
+        }
+    }
+
+    hr {
+        border: none;
+        border-top: 1px solid $colour--extralightgrey;
+        height: 0;
+        margin: 60px 0;
+    }
+    .content__three-col{
+        -webkit-column-count: 3;
+        -moz-column-count: 3;
+        column-count: 3;
+        -webkit-column-gap: 30px;
+        -moz-column-gap: 30px;
+        column-gap: 30px;
+        @include prefix(column-break-inside, avoid);
+        margin: 40px 0;
+        @include prefix('margin-before', 0);
+        @include clearfix();
+        @include respond(sm) {
+            -webkit-column-count: 1;
+            -moz-column-count: 1;
+            column-count: 1;
+        }
+
+        img {
+            width: 100%;
+            padding-bottom: 20px;
+            @include prefix(column-break-inside, avoid);
+        }
+
+        p {
+            margin-top: 0;
+            margin-bottom: 0;
+            padding-bottom: 20px;
+            @include prefix(column-break-inside, avoid);
+        }
+    }
+
+    .content__two-col {
+        @include prefix(column-count, 2);
+        @include prefix(column-gap, 60px);
+        @include prefix('margin-before', 0);
+        @include prefix(column-break-inside, avoid);
+        margin: 20px 0;
+        @include clearfix();
+        @include respond(xs) {
+            -webkit-column-count: 1;
+            -moz-column-count: 1;
+            column-count: 1;
+        }
+
+        img {
+            width: 100%;
+            padding-bottom: 20px;
+            @include prefix(column-break-inside, avoid);
+        }
+
+        p {
+            margin-top: 0;
+            margin-bottom: 0;
+            padding-bottom: 20px;
+            @include prefix(column-break-inside, avoid);
+        }
+    }
+    .content__two-col-text {
+        margin: 20px 0;
+
+        &__left {
+            float: left;
+            width: 66.66%;
+            padding-right:  40px;
+            @include box-sizing(border-box);
+            @include respond(sm) {
+                float: none;
+                width: 100%;
+                padding:0;
+            }
+
+            > p {
+                margin-top: 0;
+            }
+        }
+
+        &__right {
+            width: 33.33%;
+            float: right;
+            padding: 30px 0px 30px 40px;
+            border-left: 10px solid $colour--blue;
+            @include box-sizing(border-box);
+            font-style: italic;
+            @include respond(sm) {
+                float: none;
+                width: 100%;
+                padding: 15px 0px 15px 30px;
+                margin-bottom: 40px;
+            }
+            
+            p {
+                @include font($size: 18, $height: 1.6em, $colour: $colour--lightgrey);
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+        }
+
+    }
+}

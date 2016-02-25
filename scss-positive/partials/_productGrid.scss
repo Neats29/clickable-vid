@@ -1,0 +1,199 @@
+.masonry-container--interstitial {
+        border-bottom: 1px solid $colour--extralightgrey;
+        margin-bottom: 30px;
+}
+.masonry-container.masonry-container--interstitial .masonry-container {
+
+    &__item {
+        @include make-xs-column(6);
+        @include make-sm-column(6);
+        @include make-md-column(4);
+        @include make-lg-column(3);
+        padding-bottom: 25%;
+        //border-top: 1px solid $colour--extralightgrey;
+
+        @include respond(md) {
+            padding-bottom: 33%;
+        }
+
+        @include respond(sm) {
+            padding-bottom: 50%;
+        }
+
+        @include respond(xs) {
+            padding-bottom: 90%;
+        }
+
+        &--sizer {
+            height: 0px;
+            min-height: 0px;
+            padding-bottom: 0px;
+            border: none;
+        }
+
+        &--large {
+            @include make-xs-column(12);
+            @include make-sm-column(12);
+            @include make-md-column(8);
+            @include make-lg-column(6);
+            padding-bottom: 50%;
+
+            @include respond(md) {
+                padding-bottom: 66%;
+            }
+
+            @include respond(sm) {
+                padding-bottom: 100%;
+            }
+
+            @include respond(xs) {
+                padding-bottom: 100%;
+            }
+        }
+    }
+
+    &__container {
+        @include blur();
+
+        @include respond(sm) {
+            padding-top: 100%;
+            top: 0px;
+            bottom: 0px;
+            left: 0px;
+            right: 0px;
+        }
+    }
+
+    &__content {
+        left: 20px;
+        bottom: 20px;
+        right: 20px;
+
+        @include respond(sm) {
+            padding: 15px;
+            background: $colour--white;
+            left: 0px;
+            bottom: 0px;
+            right: 0px;
+        }
+    }
+
+    &__category {
+        @include font($size: 10, $colour: $colour--blue, $weight: 600);
+        margin-bottom: 10px;
+        @include transition(color 150ms linear);
+
+        @include respond(1499px) {
+            @include font-size(8);
+            margin-bottom: 3px;
+        }
+        
+        @include respond(md) {
+            margin-bottom: 5px;
+            @include font-size(10);
+        }
+        
+        @include respond(xs) {
+            margin-bottom: 3px;
+            @include font-size(8);
+        }
+    }
+
+    &__title {
+        padding-bottom: 0px;
+        @include font($family: $font-family !important, $size: 16, $colour: $colour--grey, $weight: 600);
+        @include transition(color 150ms linear);
+
+        @include respond(1499px) {
+            @include font-size(12);
+        }
+
+        @include respond(md) {
+            @include font-size(15);
+        }
+        
+        @include respond(xs) {
+            @include font-size(14);
+        }
+
+        &:after {
+            content: none;
+        }
+
+    }
+
+    &__hover {
+        @include respond(sm) {
+            display: block;
+            text-overflow: ellipsis;
+        }
+
+        &:before {
+            content: ' ';
+            display: block;
+            width: 75px;
+            height: 1px;
+            background: $colour--white;
+            margin-top: 15px;
+
+            @include respond(1499px) {
+                margin-top: 5px;
+            }
+        }
+
+    }
+
+    &__copy {
+        color: $colour--white;
+        
+        @include respond(1499px) {
+            @include font-size(11);
+            margin-top: 10px;
+        }
+        @include respond(md) {
+            margin-top: 10px;
+            @include font-size(13);
+        }
+        @include respond(sm) {
+            color: $colour--grey;
+        }
+        @include respond(xs) {
+            color: $colour--grey;
+            margin-top: 5px;
+            @include font-size(12);
+        }
+    }
+
+    &__button {
+        max-width: 240px;
+        width: 100%;
+        padding-left: 0px;
+        padding-right: 0px;
+        text-align: center;
+        box-sizing: border-box;
+
+        @include respond(1499px) {
+            padding: 10px 40px;
+            margin-top: 10px;
+            @include font-size(11);
+        }
+
+        @include respond(sm) {
+            display: none;
+        }
+    }
+
+}
+
+
+.masonry-container.masonry-container--interstitial .masonry-container__item--active .masonry-container {
+    
+    &__category {
+        color: $colour--white;
+    }
+
+    &__title {
+        color: $colour--white;
+    }
+
+}

@@ -1,0 +1,151 @@
+body {
+    position: relative;
+    @include respond(sm) {
+        padding-top: 40px;
+    }
+}
+a.button {
+    @include btn();
+}
+
+.main-content {
+    @include transition(margin-left 300ms);
+
+    &.nav-is-visible {
+        margin-left: -260px;
+    }
+}
+
+/* MASONRY ICONS */
+$masonry-container__icons: (
+    'masonry-container__icon': -1250px,
+    'masonry-container__icon--black.masonry-container__icon': -1350px,
+    'masonry-container__icon--darkgrey.masonry-container__icon': -1450px,
+    'masonry-container__icon--grey.masonry-container__icon': -1550px,
+    'masonry-container__icon--blue.masonry-container__icon': -1650px
+);
+.masonry-container__icon {
+    display: block;
+    width: 37px;
+    height: 36px;
+    @include sprite-sheet($positionY: -1250px);
+    margin-bottom: 10px;
+}
+@each $class, $position in $masonry-container__icons {
+    .#{$class} {
+        &--power {
+            width: 35px;
+            height: 35px;
+            background-position: 0px $position;
+        }
+
+        &--construction {
+            width: 47px;
+            height: 38px;
+            background-position: -50px $position;
+        }
+
+        &--agriculture {
+            width: 45px;
+            height: 41px;
+            background-position: -100px $position;
+        }
+
+        &--aviation {
+            width: 75px;
+            height: 31px;
+            background-position: -150px $position;
+        }
+
+        &--electrical {
+            width: 30px;
+            height: 55px;
+            background-position: -250px $position;
+        }
+
+        &--energy {
+            width: 27px;
+            height: 39px;
+            background-position: -300px $position;
+        }
+
+        &--industry {
+            width: 37px;
+            height: 38px;
+            background-position: -350px $position;
+        }
+    }
+}
+
+/* SOCIAL ICONS */
+$social-icons: (
+    'social-icon': 0px,
+    'social-icon--black.social-icon': -50px,
+    'social-icon--darkgrey.social-icon': -100px,
+    'social-icon--grey.social-icon': -250px,
+    'social-icon--blue.social-icon': -300px
+);
+.social-icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    @include sprite-sheet();
+    margin-right: 5px;
+    vertical-align: middle;
+}
+@each $class, $position in $social-icons {
+    .#{$class} {
+        &--instagram {
+            background-position: 0px $position;
+        }
+
+        &--pinterest {
+            background-position: -50px $position;
+        }
+
+        &--google {
+            background-position: -100px $position;
+        }
+
+        &--facebook {
+            background-position: -150px $position;
+        }
+
+        &--twitter {
+            background-position: -200px $position;
+        }
+
+        &--linkedin {
+            background-position: -250px $position;
+        }
+
+        &--worldwide {
+            background-position: -300px $position;
+        }
+    }
+}
+
+
+.container {
+    @include container();
+
+    &--small {
+        @include container-small();
+    }
+}
+
+.rule {
+    display: block;
+    height: 1px;
+    border: none;
+    background: $colour--extralightgrey;
+    margin: 0 auto;
+
+    &--large {
+        max-width: 1500px;
+    }
+
+    &--small {
+        max-width: 1000px;
+    }
+}
