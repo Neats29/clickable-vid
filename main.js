@@ -1,8 +1,8 @@
-var overlay = document.getElementById('overlay');
+var overlay = document.getElementById('js-overlay-container');
 var video = document.getElementById('js-video');
-var circle = document.getElementById('circle');
-var modal = document.getElementById('modal');
-var close = document.getElementById('close');
+var indicator = document.getElementById('js-overlay__indicator');
+var modal = document.getElementById('js-overlay--message');
+var close = document.getElementById('js-overlay--close');
 
 video.addEventListener('progress', function() {
   //currentTime is in seconds
@@ -10,9 +10,9 @@ var show = video.currentTime >=0 && video.currentTime < 10;
     overlay.style.visibility = show ? 'visible' : 'hidden';
 }, false);
 
-circle.addEventListener('click', function(){
+indicator.addEventListener('click', function(){
   modal.style.display = 'block';
-  circle.style.display = 'none';
+  indicator.style.display = 'none';
   video.pause();
 }, false);
 
